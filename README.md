@@ -1,11 +1,28 @@
+
 # EKS Getting Started Guide Configuration
 
 This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
 
 See that guide for additional information.
 
-NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
+NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. 
 
+# Provision EKS Infrastructure on AWS using Terraform
+terraform init
+terraform plan
+terraform apply
+terraform destory
+
+# Use Jenkins declarative pipeline-script.
+We are using Jenkins for to achieve Continuos Integration and Continuous Deployment. Our Jenkins script will ensure once the application is developed it is automatically build using maven, tested using selenium, validated using SonarQube. The build artifacts will be uploaded to Nexus Private aritifact repository. 
+# Dockerfile
+we are also using the created package (artifacts) to create a docker imgae for our application. Here docker is used for containerisation.  
+```docker
+docker build -t legah2045/springboot-app .
+```
+# Kubernetes Manifest files
+This files will deploy a "Spring-boot-app" with a MongoDB. Our application and database is deployed using Replicat Set, ConFigMap, Ingress Controller, Secrets, PVC, StorageClass, HPA, and Cluster-Auto-Scaling.
+We have also deployed Grafana and Prometheus using Helm Charts. This will monitor our applications, send alerts and as such we are going to achieve high availability.
 
 kubectl create deployment autoscaler-demo --image=nginx
 kubectl get pods --all-namespaces | grep Running | wc -l
@@ -37,10 +54,10 @@ Create docker image using Dockerfile
 docker build -t legah2045/springboot-app .
 ```
 
-## Deploy Application Using Docker Compose 
+## Deploy Application Using EKS Cluster 
 
-```docker-compose 
-docker-compose up -d 
+```kubectl apply 
+kubectl apply -f springboot-app-deployment.yml
 ```
 
 ## List Docker Containers
