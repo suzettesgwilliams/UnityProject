@@ -13,8 +13,11 @@ terraform plan
 terraform apply
 terraform destory
 
-# Use Jenkins declarative pipeline-script.
-We are using Jenkins for to achieve Continuos Integration and Continuous Deployment. Our Jenkins script will ensure once the application is developed it is automatically build using maven, tested using selenium, validated using SonarQube. The build artifacts will be uploaded to Nexus Private aritifact repository. 
+# Jenkins
+Jenkins will enable us to achieve Continuos Integration and Continuous Deployment. Our Jenkins pipeline-script  will ensure once the application is developed or modified it is automatically build using maven, tested using selenium, validated using SonarQube. The build artifacts will be uploaded to Nexus Private aritifact repository. 
+# GitHub
+The scripts used for this project can be clone from https://github.com/WinifredZenabuin/UnityProject.
+I also confihured github-webhook so that ounce the source code is modified jenkins will srtigger a build.  
 # Dockerfile
 we are also using the created package (artifacts) to create a docker imgae for our application. Here docker is used for containerisation.  
 ```docker
@@ -23,12 +26,12 @@ docker build -t legah2045/springboot-app .
 # Kubernetes Manifest files
 This files will deploy a "Spring-boot-app" with a MongoDB. Our application and database is deployed using Replicat Set, ConFigMap, Ingress Controller, Secrets, PVC, StorageClass, HPA, and Cluster-Auto-Scaling.
 We have also deployed Grafana and Prometheus using Helm Charts. This will monitor our applications, send alerts and as such we are going to achieve high availability.
-
+```t
 kubectl create deployment autoscaler-demo --image=nginx
 kubectl get pods --all-namespaces | grep Running | wc -l
 kubectl get nodes -o yaml | grep pods
 kubectl scale deployment autoscaler-demo --replicas=20
-
+```
 
 # Build Project Using Maven
 
