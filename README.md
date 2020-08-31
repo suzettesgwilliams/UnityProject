@@ -1,13 +1,37 @@
-# EKS Getting Started Guide Configuration
+# Build Project Using Maven
 
-This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
+Maven is java based build tool to generate executable 
 
-See that guide for additional information.
+packages(jar, ear,war) for java based projects.
 
-NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
+```bash
+mvn clean package
+```
+
+## Create Docker Image
+Docker is a continerization tool.Using docker we can deploy our applications as 
+
+containers using docker images. Containers contains application code and also the softwares,
+
+config files whatever is required for our application to run.
+
+Create docker image using Dockerfile
 
 
-kubectl create deployment autoscaler-demo --image=nginx
-kubectl get pods --all-namespaces | grep Running | wc -l
-kubectl get nodes -o yaml | grep pods
-kubectl scale deployment autoscaler-demo --replicas=20
+```docker
+docker build -t dockerhandson/spring-boot-mongo .
+```
+
+## Deploy Application Using Docker Compose 
+
+```docker-compose 
+docker-compose up -d 
+```
+
+## List Docker Containers
+```docker
+docker ps -a
+```
+
+## License
+[Mithun Technologies](http://mithuntechnologies.co.in)
