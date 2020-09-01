@@ -1,4 +1,4 @@
-# Terrafrom
+# Terraform
 I have used terraform as an Infrastructure as code (IaC) tool to provision my infrasctructure on AWS. Provisioned infrastructure inlude;
 VPCs, EKS Clusters, Private and Public subnets, Iinternet Gateway, Routing Tables, SECURITY GROUP, etc.
 # EKS Getting Started Guide Configuration
