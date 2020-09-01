@@ -40,7 +40,7 @@ def mavenHome = tool name: "maven3.6.3"
     stage('7. Deploy to EKS Kubernetes Cluster')
     {
   
-        kebernetesDeploy(
+        kubernetesDeploy(
             configs: 'springboot-app-deployment.yml' ,
             kubeconfigId: 'KubernetesClusterConfig' ,
             enableConfigSubstitution: true
