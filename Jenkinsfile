@@ -24,17 +24,17 @@ def mavenHome = tool name: "maven3.6.3"
     stage('5. Build Docker Image')
     {
         
-        sh "docker build -t legah2045/springboot-app ."
+        sh "docker build -t sgwilliams/springboot-app ."
 
     }
     
     stage('6. Push Docker Image to Docker Hub')
     {
        withCredentials([string(credentialsId: 'DockerHubCredentials', variable: 'DockerHubCredentials')]) {
-       sh " docker login -u legah2045 -p ${DockerHubCredentials} "
+       sh " docker login -u sgwilliams -p ${DockerHubCredentials} "
      }
 
-        sh " docker push legah2045/springboot-app "
+        sh " docker push sgwilliams/springboot-app "
     }
     
     stage('7. Deploy to EKS Kubernetes Cluster')
@@ -51,10 +51,10 @@ def mavenHome = tool name: "maven3.6.3"
 
     stage('8 EmailNotification')
  {
- mail bcc: 'abihngeng@yahoo.com', body: '''Build is over
+ mail bcc: 'suzettesgwilliams@gmail.com', body: '''Build is over
  Thanks,
- Mithun Technologies,
- 9980923226.''', cc: 'abihngeng@yahoo.com', from: '', replyTo: '', subject: 'Build is over!!', to: 'abihngeng@gmail.com'
+ S. Williams
+ 9980923226.''', cc: 'suzettesgwilliams@gmail.com', from: '', replyTo: '', subject: 'Build is over!!', to: 'sgwilliams@gmail.com'
  }
  */
  
