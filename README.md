@@ -24,7 +24,7 @@ I also confihured github-webhook so that ounce the source code is modified jenki
 # Dockerfile
 we are also using the created package (artifacts) to create a docker imgae for our application. Here docker is used for containerisation.  
 ```docker
-docker build -t legah2045/springboot-app .
+docker build -t sgwilliams/springboot-app .
 ```
 # Kubernetes Manifest files
 This files will deploy a "Spring-boot-app" with a MongoDB. Our application and database is deployed using Replicat Set, ConFigMap, Ingress Controller, Secrets, PVC, StorageClass, HPA, and Cluster-Auto-Scaling.
@@ -71,5 +71,4 @@ kubectl apply -f springboot-app-deployment.yml
 docker ps -a
 ```
 
-## License
-[Winifred Zenabuin](https://www.linkedin.com/in/winifred-zenabuin-1b430b194/)
+
