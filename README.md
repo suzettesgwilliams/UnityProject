@@ -19,7 +19,7 @@ terraform destory
 # Jenkins
 Jenkins will enable us to achieve Continuos Integration and Continuous Deployment. Our Jenkins pipeline-script  will ensure once the application is developed or modified it is automatically build using maven, tested using selenium, validated using SonarQube. The build artifacts will be uploaded to Nexus Private aritifact repository. 
 # GitHub
-The scripts used for this project can be clone from https://github.com/WinifredZenabuin/UnityProject.
+The scripts used for this project can be clone from https://github.com/suzettesgwilliams/UnityProject.
 I also confihured github-webhook so that ounce the source code is modified jenkins will srtigger a build.  
 # Dockerfile
 we are also using the created package (artifacts) to create a docker imgae for our application. Here docker is used for containerisation.  
