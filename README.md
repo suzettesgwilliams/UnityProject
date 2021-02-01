@@ -57,7 +57,7 @@ Create docker image using Dockerfile
 
 
 ```docker
-docker build -t legah2045/springboot-app .
+docker build -t sgwilliams/springboot-app .
 ```
 
 ## Deploy Application Using EKS Cluster 
